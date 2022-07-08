@@ -1,0 +1,48 @@
+architecture: FairMOT
+#pretrain_weights: https://paddledet.bj.bcebos.com/models/pretrained/ResNet50_vd_ssld_pretrained.pdparams
+for_mot: True
+
+FairMOT:
+  detector: CenterNet
+  reid: FairMOTEmbeddingHead
+  loss: FairMOTLoss
+  tracker: JDETracker
+
+CenterNet:
+  backbone: ResNet
+  neck: CenterNetDLAFPN
+  head: CenterNetHead
+  post_process: CenterNetPostProcess
+
+ResNet:
+  depth: 50
+
+CenterNetDLAFPN:
+  first_level: 0
+  last_level: 4
+  down_ratio: 4
+  dcn_v2: False
+
+CenterNetHead:
+  head_planes: 256
+  heatmap_weight: 1
+  regress_ltrb: True
+  size_weight: 0.1
+  size_loss: 'L1'
+  offset_weight: 1
+  iou_weight: 0
+
+
+FairMOTEmbeddingHead:
+  ch_head: 256
+  ch_emb: 128
+
+CenterNetPostProcess:
+  max_per_img: 500
+  down_ratio: 4
+  regress_ltrb: True
+
+JDETracker:
+  conf_thres: 0.4
+  tracked_thresh: 0.4
+  metric_type: cosine

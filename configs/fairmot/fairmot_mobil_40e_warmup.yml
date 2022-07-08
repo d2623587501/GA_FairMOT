@@ -1,0 +1,7 @@
+_BASE_: [
+  '../datasets/mot.yml',
+  '../runtime.yml',
+  '_base_/optimizer_40e_warmup.yml',
+  '_base_/fairmot_mobil.yml',
+  '_base_/fairmot_reader_1088x608.yml',
+]
