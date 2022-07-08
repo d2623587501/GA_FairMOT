@@ -1,3 +1,6 @@
+ - [中文](https://github.com/d2623587501/GA_FairMOT/blob/main/README_cn.md)
+ - [English](https://github.com/d2623587501/GA_FairMOT/blob/main/README.md)
+
 # GA_FairMOT(Low-illumination scenes)
 ## 1 Research Base
 ###  1.1 Thesis Research Sources
